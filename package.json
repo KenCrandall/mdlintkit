@@ -1,0 +1,14 @@
+{
+  "name": "mdlintkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone starter kit for markdownlint-cli2, VS Code integration, and house-style Markdown rules.",
+  "license": "MIT",
+  "scripts": {
+    "lint:markdown": "markdownlint-cli2 --config .markdownlint-cli2.jsonc",
+    "fix:markdown": "markdownlint-cli2 --config .markdownlint-cli2.jsonc --fix"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.18.1"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  // Shared markdownlint configuration for both markdownlint-cli2 and the VS
+  // Code markdownlint extension. Keep portable rule behavior here so CLI and
+  // editor feedback stay aligned.
+  "globs": [
+    "**/*.md",
+    "**/*.markdown"
+  ],
+  "ignores": [
+    "**/.git/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/vendor/**"
+  ],
+  "customRules": [
+    "./.markdownlint/rules/house-frontmatter.cjs",
+    "./.markdownlint/rules/house-heading-case.cjs",
+    "./.markdownlint/rules/house-typography.cjs",
+    "./.markdownlint/rules/house-footnotes.cjs",
+    "./.markdownlint/rules/house-content-cleanup.cjs"
+  ],
+  "config": {
+    "default": false,
+
+    "MD004": { "style": "dash" },
+    "MD009": { "br_spaces": 0, "strict": true },
+    "MD010": {
+      "code_blocks": false,
+      "spaces_per_tab": 4
+    },
+    "MD012": { "maximum": 1 },
+    "MD022": { "lines_above": 1, "lines_below": 1 },
+    "MD023": true,
+    "MD026": {
+      "punctuation": ".,;:!。，；：！"
+    },
+    "MD027": true,
+    "MD028": true,
+    "MD029": { "style": "ordered" },
+    "MD030": true,
+    "MD031": true,
+    "MD032": true,
+    "MD034": false,
+    "MD039": true,
+    "MD040": true,
+    "MD046": { "style": "fenced" },
+    "MD047": true,
+    "MD048": { "style": "backtick" },
+    "MD049": { "style": "underscore" },
+    "MD050": { "style": "asterisk" },
+    "MD058": true,
+
+    "HS001": true,
+    "HS002": true,
+    "HS003": true,
+    "HS004": true,
+    "HS005": true,
+    "HS006": true,
+    "HS007": true,
+    "HS008": true,
+    "HS009": true,
+    "HS010": true,
+    "HS011": true
+  }
+}
