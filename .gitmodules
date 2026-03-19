@@ -1,0 +1,5 @@
+[submodule "vendor/markdownlint"]
+	path = vendor/markdownlint
+	url = https://github.com/DavidAnson/markdownlint.git
+	branch = main
+	shallow = true

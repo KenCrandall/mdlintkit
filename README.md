@@ -30,8 +30,14 @@ set from the same project-level configuration.
 
 Use the `Makefile` entry points as the normal workflow:
 
+- `make setup`
+  Populates the vendored markdownlint rule docs submodule and installs the local tooling needed by the other Make targets.
 - `make deps`
-  Installs the local Node-based lint tooling.
+  Installs the local Node-based lint tooling only.
+- `make vendor-docs`
+  Populates the shallow, sparse vendored markdownlint documentation submodule only.
+- `make update`
+  Advances the vendored markdownlint docs submodule to the latest upstream `main` commit, stages the submodule pointer change, and creates a local commit describing that update.
 - `make lint`
   Runs the shared markdownlint rule set in check mode.
 - `make mdfix`
@@ -100,58 +106,58 @@ Frontmatter style preferences:
 ## Built-in Rule Enforcement
 
 The following built-in markdownlint rules currently enforce part of the starter
-style. For the canonical built-in rule documentation, see the upstream
-[`markdownlint` rules index](https://github.com/DavidAnson/markdownlint#rules--aliases)
-and the per-rule pages in the
+style. A local reference copy of the upstream rule documentation is vendored at
+[`vendor/markdownlint/doc/Rules.md`](vendor/markdownlint/doc/Rules.md), using the
 [`DavidAnson/markdownlint`](https://github.com/DavidAnson/markdownlint)
-repository.
+repository as the source of truth. Run `make setup` after cloning to restore
+the sparse `doc/` checkout locally and install the local CLI tooling.
 
-- [`MD004`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md004.md)
+- [`MD004`](vendor/markdownlint/doc/md004.md)
   unordered list style: `dash`
-- [`MD009`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md)
+- [`MD009`](vendor/markdownlint/doc/md009.md)
   no trailing spaces, including strict handling for line breaks
-- [`MD010`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md010.md)
+- [`MD010`](vendor/markdownlint/doc/md010.md)
   hard tabs, using 4 spaces per tab for equivalent width and excluding code blocks
-- [`MD012`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md)
+- [`MD012`](vendor/markdownlint/doc/md012.md)
   no multiple consecutive blank lines beyond one
-- [`MD022`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md022.md)
+- [`MD022`](vendor/markdownlint/doc/md022.md)
   blank lines around headings
-- [`MD023`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md)
+- [`MD023`](vendor/markdownlint/doc/md023.md)
   headings must start at the beginning of the line
-- [`MD026`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md026.md)
+- [`MD026`](vendor/markdownlint/doc/md026.md)
   no trailing punctuation in headings, using the configured punctuation set
-- [`MD027`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md)
+- [`MD027`](vendor/markdownlint/doc/md027.md)
   standard blockquote style requiring a space after `>`
-- [`MD028`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md028.md)
+- [`MD028`](vendor/markdownlint/doc/md028.md)
   no blank lines inside blockquotes
-- [`MD029`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md029.md)
+- [`MD029`](vendor/markdownlint/doc/md029.md)
   ordered list marker style: `ordered`
-- [`MD030`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md030.md)
+- [`MD030`](vendor/markdownlint/doc/md030.md)
   spaces after list markers
-- [`MD031`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md031.md)
+- [`MD031`](vendor/markdownlint/doc/md031.md)
   blank lines around fenced code blocks
-- [`MD032`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md032.md)
+- [`MD032`](vendor/markdownlint/doc/md032.md)
   blank lines around lists
-- [`MD039`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md)
+- [`MD039`](vendor/markdownlint/doc/md039.md)
   no spaces inside link text
-- [`MD040`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md)
+- [`MD040`](vendor/markdownlint/doc/md040.md)
   fenced code blocks must specify a language
-- [`MD046`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md046.md)
+- [`MD046`](vendor/markdownlint/doc/md046.md)
   fenced code block style: `fenced`
-- [`MD047`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md047.md)
+- [`MD047`](vendor/markdownlint/doc/md047.md)
   file must end with a single newline
-- [`MD048`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md048.md)
+- [`MD048`](vendor/markdownlint/doc/md048.md)
   fenced code fence style: `backtick`
-- [`MD049`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md049.md)
+- [`MD049`](vendor/markdownlint/doc/md049.md)
   emphasis style: `underscore`
-- [`MD050`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md050.md)
+- [`MD050`](vendor/markdownlint/doc/md050.md)
   strong emphasis style: `asterisk`
-- [`MD058`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md058.md)
+- [`MD058`](vendor/markdownlint/doc/md058.md)
   blank lines around tables
 
 The following built-in rule is intentionally disabled in the starter config:
 
-- [`MD034`](https://github.com/DavidAnson/markdownlint/blob/main/doc/md034.md)
+- [`MD034`](vendor/markdownlint/doc/md034.md)
   bare URLs are allowed by default in this starter kit
 
 ## House Style Rules
