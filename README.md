@@ -169,6 +169,7 @@ The active custom rules live in:
 - `.markdownlint/rules/house-typography.cjs`
 - `.markdownlint/rules/house-footnotes.cjs`
 - `.markdownlint/rules/house-content-cleanup.cjs`
+- `.markdownlint/rules/house-emoji.cjs`
 
 Those scripts currently implement the following checks:
 
@@ -219,6 +220,12 @@ Those scripts currently implement the following checks:
 - `HS010`
   `duplicate-list-marker`
   Detect duplicate or empty list markers that usually come from paste or edit mistakes.
+
+### `.markdownlint/rules/house-emoji.cjs`
+
+- `HS012`
+  `no-emoji-in-prose`
+  Disallow emoji in Markdown prose while ignoring inline code spans and fenced code blocks.
 
 ## Customization Guidance
 

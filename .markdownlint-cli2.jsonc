@@ -17,7 +17,8 @@
     "./.markdownlint/rules/house-heading-case.cjs",
     "./.markdownlint/rules/house-typography.cjs",
     "./.markdownlint/rules/house-footnotes.cjs",
-    "./.markdownlint/rules/house-content-cleanup.cjs"
+    "./.markdownlint/rules/house-content-cleanup.cjs",
+    "./.markdownlint/rules/house-emoji.cjs"
   ],
   "config": {
     "default": false,
@@ -60,6 +61,7 @@
     "HS008": true,
     "HS009": true,
     "HS010": true,
-    "HS011": true
+    "HS011": true,
+    "HS012": true
   }
 }
